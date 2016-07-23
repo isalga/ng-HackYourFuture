@@ -79,14 +79,28 @@
                             <li>ng tags</li>
                         </ul>
                     </section>
-                    <section>Example</section>
+                    <section>
+                        <div style="text-align:left">
+                            <p>&#60;body ng-app="myApp"&#62;</p>
+                            <p>    &#60;div ng-controller="myController"&#62;</p>
+                            <p>        {{message}}</p>
+                            <p>    &#60;&#47;div&#62;</p>
+                            <p>&#60;&#47;body&#62;</p>
+                        </div>
+                    </section>
                     <section>
                         <h2>Controller</h2>
                         <ul>
                             <li>$scope</li>
                         </ul>
                     </section>
-                    <section>Example</section>
+                    <section>
+                        <code>
+                            function myController($scope) {
+                                $scope.message = "hello";
+                            }
+                        </code>
+                    </section>
                     <section>
                         All together example
                     </section>
