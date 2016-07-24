@@ -1,2 +1,2 @@
 angular.module('myApp', [])
-.controller("myController", ['$scope', myController]);
+.controller("todoController", ['$scope', todoController]);
