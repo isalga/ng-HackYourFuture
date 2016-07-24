@@ -6,22 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src="js/lib/angular-1.5.7.min.js"></script>
-        <script src="js/controllers/myController.js"></script>
+        <script src="js/controllers/todoController.js"></script>
         <script src="js/app.js"></script>
     </head>
     <body ng-app="myApp">
-        <div ng-controller="myController">
+        <div ng-controller="todoController">
             <h2>To-do list</h2>
 
             <div ng-repeat="item in toDoList">
-                <p ng-if="index % 2 ==0">
-
                 {{ item }}
-                </p>
-                <div ng-if="index % 2 !=0">
-
-                {{ item }}
-                </div>
             </div>
             <input type="text" ng-model="myInput" \>
             <input type="button" value="add" ng-click="addItem();" \>
