@@ -52,6 +52,7 @@
                             <li>No jquery</li>
                             <li>Ionic brought Angular to mobile</li>
                             <li>Angular 1 vs Angular 2</li>
+                            <li>Enemies: Emberjs, Reactjs</li>
                         </ul>
                     </section>
                 </section>
@@ -60,13 +61,14 @@
                         <h2>Angular core concepts</h2>
                     </section>
                     <section>
-                        <h2>MVC framework</h2>
+                        <h2>MVC framework pattern</h2>
+                        <img style="max-height: 65vh; background-color: rgba(240,240,248,.6)" src="img/mvc.png">
                     </section>
                     <section>
                         <h2>Angular approach</h2>
                         <ul>
-                            <li>M - Services</li>
-                            <li>V - HTML, directives (ng-tags)</li>
+                            <li>M - Services(remote), controller(local)</li>
+                            <li>V - HTML, directives (ng-attributes)</li>
                             <li>C - Controllers</li>
                         </ul>
                     </section>
@@ -82,8 +84,8 @@
                     <section>
                         <h2>View</h2>
                         <ul>
-                            <li>Data binding</li>
-                            <li>ng tags</li>
+                            <li>Data binding: {{ someData }}</li>
+                            <li>ng attributes: ng-app, ng-controller, ng-repeat, ng-click, ng-show/ng-hide, ng-class, ng-change...</li>
                         </ul>
                     </section>
                     <section>
@@ -92,11 +94,17 @@
                     <section>
                         <h2>Controller</h2>
                         <ul>
-                            <li>$scope</li>
+                            <li>$scope: glues angular app with the view. $scope.message will be in the view {{ message }}</li>
+                            <li>Store and manipulate local data.</li>
                         </ul>
                     </section>
                     <section>
                         <img style="width: 70vw;" src="img/ang-controller.png">
+                    </section>
+                    <section>
+                        <h2>But something is missing?!</h2>
+                        <p>We need to define the Angular app</p>
+                        <img src="img/ang-app.png">
                     </section>
                     <section>
                         <img src="img/ng-all.png">
@@ -110,12 +118,21 @@
                         <h2>Not for today, but...</h2>
                         <img src="img/smiley-monkey.jpg"/>    
                     </section>
-                    <section>Services(the model)</section>
+                    <section>
+                        <h2>Services</h2>
+                        <ul>
+                            <li>The remote model</li>
+                            <li>$http: get data online</li>
+                        </ul>
+                    </section>
                     <section>Example</section>
                     <section>
                         <h3>All together looks like!</h3>
                         <img src="MVC-example.jpg"/>
                     </section>
+                </section>
+                <section>
+                    <code>git clone https://github.com/isalga/ng-HackYourFuture.git</code>
                 </section>
             </div>
         </div>
