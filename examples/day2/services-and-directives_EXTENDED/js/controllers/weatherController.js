@@ -15,8 +15,8 @@ function weatherController($scope, weather) {
             };
 
             $scope.searched = true;
-        }, function (error) {
 
+        }, function (error) {
             console.error(error);
         });
     };

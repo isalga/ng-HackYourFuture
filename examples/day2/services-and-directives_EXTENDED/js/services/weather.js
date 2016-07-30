@@ -6,7 +6,6 @@ function weather($http) {
         return $http.get('http://api.openweathermap.org/data/2.5/weather?q=Amsterdam&units=metric&APPID=73964a3da4fcdeb23c06e99ac6e6e45d');
     };
 
-    // explained in step2
     this.getWeatherByCity = function (city) {
         return $http.get('http://api.openweathermap.org/data/2.5/weather?q='
         	+ city + '&units=' + units + '&APPID=' + API_KEY);

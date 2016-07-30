@@ -2,7 +2,6 @@ function weatherCard() {
     return {
         // Directive can be declared as E: element, A: attribute
         restrict: 'EA',
-        // tell directive to recognize weather
         scope: {
             weather: '='
         },
