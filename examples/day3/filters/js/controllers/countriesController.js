@@ -1,6 +1,7 @@
 function countriesController($scope, country) {
 
   $scope.countries;
+  $scope.order = 'name';
 
   country.getCountries().then(function (response) {
 

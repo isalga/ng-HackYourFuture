@@ -16,38 +16,62 @@
 
     <!-- App -->
     <script src="js/controllers/countriesController.js"></script>
+    <script src="js/controllers/dateController.js"></script>
     <script src="js/services/country.js"></script>
     <script src="js/app.js"></script>
 </head>
 
 <body ng-app="countriesApp">
     <div class="container">
-        <div ng-controller="countriesController">
-            <input type="text" placeholder="search..." class="form-control" ng-model="search" />
-            <label for="sel1">Order by:</label>
-            <select class="form-control" ng-model="order">
-                <option value="name">Alphabetical</option>
-                <option value="population">Population</option>
-                <option value="subregion">Region</option>
-            </select>
-            <div ng-repeat="(key, value) in countries | filter:search | orderBy:order | groupBy: 'subregion'">
-                <table class="table" ng-show='value.length > 0'>
-                    <caption> {{ key }} </caption>
-                    <thead>
-                        <th>Name</th>
-                        <th>Capital</th>
-                        <th>Region(subcontinent)</th>
-                        <th>Population</th>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="country in value">
-                            <td> {{ country.name }} </td>
-                            <td> {{ country.capital }} </td>
-                            <td> {{ country.subregion }} </td>
-                            <td> {{ country.population | number }} </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div ng-controller="dateController" class="panel panel-default">
+            <div class="panel-body">
+                <label>Currency:</label>
+                <select class="form-control" ng-model="cur">
+                    <option value="€">€</option>
+                    <option value="nakfa">nakfa</option>
+                    <option value="£S">£S</option>
+                </select>
+                {{ 2312434354 | currency : cur }}
+                <p>{{ today | date : "dd.MM.y" }}</p>
+            </div>
+        </div>
+        <div ng-controller="countriesController" class="panel panel-default">
+            <div class="panel-body">
+                <input type="text" placeholder="search..." class="form-control" ng-model="search" />
+                <label>Order by:</label>
+                <select class="form-control" ng-model="order">
+                    <option value="name">Alphabetical</option>
+                    <option value="-population">Population</option>
+                    <option value="subregion">Region</option>
+                </select>
+                <label>Limit to:</label>
+                <select class="form-control" ng-model="limit">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="false">all</option>
+                </select>
+                <div ng-repeat="(key, value) in countries | filter:search | orderBy:order | groupBy: 'subregion'">
+                    <!-- <table class="table" ng-show='value.length > 0'> -->
+                    <table class="table" ng-hide="value | isEmpty">
+                        <caption> {{ key }} </caption>
+                        <thead>
+                            <th>Name</th>
+                            <th>Capital</th>
+                            <th>Region(subcontinent)</th>
+                            <th>Population</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="country in value | limitTo:limit">
+                                <td> {{ country.name }} </td>
+                                <td> {{ country.capital }} </td>
+                                <td> {{ country.subregion | lowercase }} </td>
+                                <!-- <td> {{ country.population | number }} </td> -->
+                                <td> {{ country.population | shortFmt: 1 }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
