@@ -1,7 +1,15 @@
+{{ location }}
+
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<table class="table">
+				<thead>
+					<th>Name</th>
+					<th>Capital</th>
+					<th>Region(subcontinent)</th>
+					<th>Population</th>
+				</thead>
 				<tbody>
 					<tr ng-repeat="country in countries">
 						<td> {{ country.name }} </td>

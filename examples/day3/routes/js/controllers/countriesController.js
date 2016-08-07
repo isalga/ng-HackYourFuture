@@ -5,20 +5,20 @@ function countriesController($scope, $location, $routeParams, country) {
 
   if ($location.path().includes('detail')) {
 
-    var paramName = $routeParams.name;
+    var name = $routeParams.name;
 
-    country.countries.map(function (item) {
+    country.getCountry(name).then(function (response) {
 
-      if (item.name == paramName) {
-        $scope.country = item;
-      }
+      $scope.country = response.data;
+    }, function (error) {
+
+      console.error(error);
     });
 
   } else {
     country.getCountries().then(function (response) {
 
       $scope.countries = response.data;
-      country.setCountries(response.data);
     }, function (error) {
 
       console.error(error);

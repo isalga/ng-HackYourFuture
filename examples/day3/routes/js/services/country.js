@@ -1,13 +1,13 @@
 function country($http) {
 
-  var URL = 'https://restcountries.eu/rest/v1/lang/es';
-  var countries;
+  var URL_ALL = 'https://restcountries.eu/rest/v1/all';
+  var URL_ONE = 'https://restcountries.eu/rest/v1/name/';
 
-  this.getCountries = function () {
-    return $http.get(URL);
+  this.getCountry = function (countryName) {
+    return $http.get(URL_ONE + countryName);
   };
 
-  this.setCountries = function (countries) {
-    this.countries = countries;
+  this.getCountries = function () {
+    return $http.get(URL_ALL);
   };
 }
