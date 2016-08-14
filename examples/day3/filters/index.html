@@ -31,8 +31,8 @@
                     <option value="nakfa">nakfa</option>
                     <option value="£S">£S</option>
                 </select>
-                {{ 2312434354 | currency : cur }}
-                <p>{{ today | date : "dd.MM.y" }}</p>
+                {{ 2312434354 | currency : '$' }}
+                <p>{{ today | date : "MM.d.y" }}</p>
             </div>
         </div>
         <div ng-controller="countriesController" class="panel panel-default">
@@ -51,10 +51,8 @@
                     <option value="10">10</option>
                     <option value="false">all</option>
                 </select>
-                <div ng-repeat="(key, value) in countries | filter:search | orderBy:order | groupBy: 'subregion'">
-                    <!-- <table class="table" ng-show='value.length > 0'> -->
-                    <table class="table" ng-hide="value | isEmpty">
-                        <caption> {{ key }} </caption>
+                <div>
+                    <table class="table">
                         <thead>
                             <th>Name</th>
                             <th>Capital</th>
@@ -62,12 +60,11 @@
                             <th>Population</th>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="country in value | limitTo:limit">
+                            <tr ng-repeat="country in countries | filter:search | orderBy:order | limitTo:limit">
                                 <td> {{ country.name }} </td>
                                 <td> {{ country.capital }} </td>
-                                <td> {{ country.subregion | lowercase }} </td>
-                                <!-- <td> {{ country.population | number }} </td> -->
-                                <td> {{ country.population | shortFmt: 1 }} </td>
+                                <td> {{ country.subregion }} </td>
+                                <td> {{ country.population }} </td>
                             </tr>
                         </tbody>
                     </table>

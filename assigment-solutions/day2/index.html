@@ -27,9 +27,7 @@
     <!-- Controller definition -->
     <div ng-controller="movieController" class="container">
         <ul style="columns: 4" ng-show="showAll">
-            <li ng-repeat="film in films" style="-webkit-column-break-inside: avoid;
-          page-break-inside: avoid;
-               break-inside: avoid;">
+            <li ng-repeat="film in films" style="-webkit-column-break-inside: avoid; page-break-inside: avoid; break-inside: avoid;">
                 <movie-card film="film" ng-click="showOne(film)"></movie-card>
             </li>
         </ul>
