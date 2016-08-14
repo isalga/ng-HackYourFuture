@@ -1,0 +1,16 @@
+<!-- Controller definition -->
+<div ng-controller="newsController" class="container">
+	<!-- Filter components -->
+	<div class="row">
+		<div class="col s9">
+			<search-input></search-input>
+		</div>
+		<div class="col s3">
+			<order-by-select></order-by-select>
+		</div>
+	</div>
+	<!-- News area -->
+	<div ng-repeat="new in news | filter:search | filter:category | orderBy:order">
+		<new-card new="new" index="$index"></new-card>
+	</div>
+</div>

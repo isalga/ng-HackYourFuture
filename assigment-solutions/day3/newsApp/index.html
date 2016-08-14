@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="js/lib/angular-1.5.7.min.js"></script>
+
+    <!-- App -->
+    <script src="js/controllers/newsController.js"></script>
+    <script src="js/services/news.js"></script>
+    <script src="js/directives/newCard.js"></script>
+    <script src="js/directives/orderBySelect.js"></script>
+    <script src="js/directives/categoryPicker.js"></script>
+    <script src="js/directives/searchInput.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<!-- App definition -->
+
+<body ng-app="newsApp" class="grey lighten-5">
+    <!-- Controller definition -->
+    <div ng-controller="newsController" class="container">
+        <!-- Filter components -->
+        <div class="row">
+            <div class="col s6">
+                <search-input></search-input>
+            </div>
+            <div class="col s3">
+                <order-by-select></order-by-select>
+            </div>
+            <div class="col s3">
+                <category-picker></category-picker>
+            </div>
+        </div>
+        <!-- News area -->
+        <div ng-repeat="new in news | filter:search | filter:category | orderBy:order">
+            <new-card new="new"></new-card>
+        </div>
+    </div>
+</body>
+
+</html>
