@@ -7,7 +7,6 @@ function movieController($scope, movie) {
   movie.getAll().then(function (response) {
 
       $scope.films = response.data;
-      console.log(response.data);
     }, function (error) {
 
       console.error(error);

@@ -1,7 +1,7 @@
 function countriesController($scope, country) {
 
   $scope.countries;
-  // $scope.order = '-population';
+  $scope.order = 'name';
 
   country.getCountries().then(function (response) {
 
